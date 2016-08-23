@@ -57,20 +57,21 @@ namespace FlashAnimations
         {
             var sb = Game1.spriteBatch;
 
-            float rawIndex = (float)(elapsed.TotalSeconds * fps) % this.animation.frameCount;
+            float rawIndex = (float)(elapsed.TotalSeconds * fps);
             int currentIndex, nextIndex;
             float weight;
 
             if (this.Loop)
             {
+                rawIndex     = rawIndex % this.animation.frameCount;
                 currentIndex = (int)Math.Floor(rawIndex);
                 nextIndex    = (currentIndex + 1) % this.animation.frameCount;
                 weight       = rawIndex % 1;
             }
             else
             {
-                currentIndex = Math.Min((int)Math.Floor(rawIndex), this.animation.frameCount);
-                nextIndex    = Math.Min(currentIndex + 1, this.animation.frameCount);
+                currentIndex = Math.Min((int)Math.Floor(rawIndex), this.animation.frameCount - 1);
+                nextIndex    = Math.Min(currentIndex + 1, this.animation.frameCount - 1);
                 weight       = rawIndex % 1;
             }
 
