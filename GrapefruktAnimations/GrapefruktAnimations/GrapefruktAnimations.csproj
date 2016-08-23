@@ -73,8 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimationPlayer.cs" />
+    <Compile Include="Import\Animations.cs" />
     <Compile Include="Import\FlashImporter.cs" />
     <Compile Include="Import\Frame.cs" />
+    <Compile Include="Import\Textures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
@@ -85,11 +87,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="animations.xml" />
+    <None Include="animations.xml" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
+    <None Include="sheets.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GrapefruktAnimationsContent\GrapefruktAnimationsContent.contentproj">

@@ -16,6 +16,7 @@ namespace FlashAnimations
         private Animations animations;
         private AnimationPlayer player;
         private int index;
+        private Textures sheets;
 
         public Game1()
         {
@@ -31,7 +32,7 @@ namespace FlashAnimations
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            this.Window.AllowUserResizing = true;
 
             base.Initialize();
         }
@@ -45,7 +46,9 @@ namespace FlashAnimations
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.animations = new FlashImporter().LoadAnimations(Resource1.animations);
+            this.animations = FlashImporter.LoadAnimations(Resource1.animations);
+            this.sheets = FlashImporter.LoadSheets(Resource1.sheets);
+
             this.index = 0;
             this.playNext();
         }
@@ -53,18 +56,11 @@ namespace FlashAnimations
         private void playNext()
         {
             this.index = (this.index + 1) % this.animations.Animation.Count();
-            this.player = new AnimationPlayer(this.animations.Animation[index], playNext);
+            this.player = new AnimationPlayer(this.animations.Animation[index], this.sheets, playNext);
             this.player.LoadContent(this.Content);
-            this.player.Position = new Vector2(300, 0);
-            this.player.Scale = new Vector2(0.5f);
-            this.player.DrawOrder = new[]
-             {
-                "cloudback",
-                "rays",
-                "rainbow",
-                "cloudfront",
-                "text",
-            };
+
+            this.player.Scale = new Vector2(this.Window.ClientBounds.Height / 800f);
+            this.player.Position = new Vector2(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height) / 2;
         }
 
         /// <summary>
@@ -87,6 +83,8 @@ namespace FlashAnimations
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            this.player.Scale = new Vector2(this.Window.ClientBounds.Height / 800f);
+            this.player.Position = new Vector2(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height) / 2;
             this.player.Update(gameTime);
 
             base.Update(gameTime);

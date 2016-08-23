@@ -76,5 +76,20 @@ namespace FlashAnimations {
                 return ResourceManager.GetString("animations", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;Textures&gt;
+        ///  &lt;TextureSheet name=&quot;darwinsheet&quot;&gt;
+        ///    &lt;Texture name=&quot;darwin&quot; width=&quot;484&quot; height=&quot;714&quot; path=&quot;darwinsheet/darwin.png&quot; registrationPointX=&quot;64.00&quot; registrationPointY=&quot;100.00&quot; frameCount=&quot;28&quot; frameWidth=&quot;121&quot; frameHeight=&quot;102&quot; columns=&quot;4&quot;/&gt;
+        ///  &lt;/TextureSheet&gt;
+        ///  &lt;TextureSheet name=&quot;godscores&quot;&gt;
+        ///    &lt;Texture name=&quot;text&quot; width=&quot;320&quot; height=&quot;191&quot; path=&quot;godscores/text.png&quot; registrationPointX=&quot;140.00&quot; registrationPointY=&quot;80.00&quot; zIndex=&quot;4&quot;/&gt;
+        ///    &lt;Texture name=&quot;cloudfront&quot; width=&quot;341&quot; height=&quot;249&quot; path=&quot;godsc [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string sheets {
+            get {
+                return ResourceManager.GetString("sheets", resourceCulture);
+            }
+        }
     }
 }
