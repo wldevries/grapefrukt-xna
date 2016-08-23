@@ -118,7 +118,7 @@ namespace FlashAnimations
                 int col = animationFrame % sprite.Definition.Columns;
                 int row = animationFrame / sprite.Definition.Columns;
                 int x = col * sprite.Definition.frameWidth;
-                int y = row * sprite.Definition.frameWidth;
+                int y = row * sprite.Definition.frameHeight;
                 var sourcerect = new Rectangle(x, y, sprite.Definition.frameWidth, sprite.Definition.frameHeight);
 
                 sb.Draw(sprite.Texture,
