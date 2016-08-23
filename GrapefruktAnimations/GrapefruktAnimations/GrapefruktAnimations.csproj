@@ -75,7 +75,6 @@
     <Compile Include="AnimationPlayer.cs" />
     <Compile Include="Import\Animations.cs" />
     <Compile Include="Import\FlashImporter.cs" />
-    <Compile Include="Import\Frame.cs" />
     <Compile Include="Import\Textures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
